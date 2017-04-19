@@ -1,2 +1,1 @@
-# kubus-facebook-bot
-kubus facebook bot
+# bku-home-bot

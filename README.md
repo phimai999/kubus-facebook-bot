@@ -1,1 +1,1 @@
-# bku-home-bot
+#kubus-home-bot

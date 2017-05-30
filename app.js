@@ -548,7 +548,7 @@ function sendVideoMessage(recipientId) {
  * Send a file using the Send API.
  *
  */
-function sendFileMessage(recipientId) {
+function sendFileMessage(recipientId,fileLink) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -557,7 +557,7 @@ function sendFileMessage(recipientId) {
       attachment: {
         type: "file",
         payload: {
-          url: SERVER_URL + "/assets/test.txt"
+          url: fileLink
         }
       }
     }

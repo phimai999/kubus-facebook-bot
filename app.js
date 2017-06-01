@@ -933,7 +933,7 @@ data.devices.forEach((device)=> {
       query.get(device, {
         success: (result) =>{
           items.push({
-            title: "DeviceID: " + device + "\r\nLast update: " + result.updatedAt,
+            title: "DeviceID: " + device + " (Last update: " + result.updatedAt + ")",
             subtitle: "Temperature: " + parseInt(result.get("temperature")) + "ºC\r\nHumidity: " + parseInt(result.get("humidity")) + "%\r\nLocation: " + result.get("location").latitude +","+  result.get("location").longitude 
           })
         },

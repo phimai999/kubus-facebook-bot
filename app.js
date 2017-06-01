@@ -1006,8 +1006,8 @@ function getInfoSensor(ownerId) {
 // a valid certificate authority.
 app
   .listen(app.get('port'), function () {
-    Parse.initialize("sensio");
-    Parse.serverURL = 'http://sensioserver.herokuapp.com/parse';
+    Parse.initialize("kubus-realtime");
+    Parse.serverURL = 'http://kubus-realtime.herokuapp.com/parse';
     console.log('Node app is running on port', app.get('port'));
   });
 

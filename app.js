@@ -59,7 +59,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 // variables for database
 let Devices = Parse
   .Object
-  .extend("inHouseDevices");
+  .extend("devices");
 let Users = Parse
   .Object
   .extend("User");

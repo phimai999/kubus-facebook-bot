@@ -934,7 +934,7 @@ data.devices.forEach((device)=> {
         success: (result) =>{
           items.push({
             title: "DeviceID: " + device,
-            subtitle: "Temperature: " + parseInt(result.get("temperature")) + "ºC\r\nHumidity: " + parseInt(result.get("humidity")) + "% \r\nLocation: " + result.get("location") + "\r\nLast update: " + result.updatedAt
+            subtitle: "Temperature: " + parseInt(result.get("temperature")) + "ºC\r\nHumidity: " + parseInt(result.get("humidity")) + "% \r\nLocation: " + result.get("location").latitude +","+  result.get("location").longitude + "\r\nLast update: " + result.updatedAt
           })
         },
         error: (error) =>{

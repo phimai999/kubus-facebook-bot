@@ -59,7 +59,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 // variables for database
 let Devices = Parse
   .Object
-  .extend("inHouseDevices");
+  .extend("devices");
 let Users = Parse
   .Object
   .extend("User");
@@ -548,7 +548,7 @@ function sendVideoMessage(recipientId) {
  * Send a file using the Send API.
  *
  */
-function sendFileMessage(recipientId) {
+function sendFileMessage(recipientId,fileLink) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -557,7 +557,7 @@ function sendFileMessage(recipientId) {
       attachment: {
         type: "file",
         payload: {
-          url: SERVER_URL + "/assets/test.txt"
+          url: fileLink
         }
       }
     }
@@ -933,8 +933,8 @@ data.devices.forEach((device)=> {
       query.get(device, {
         success: (result) =>{
           items.push({
-            title: "DeviceID: " + device,
-            subtitle: "Temperature: " + parseInt(result.get("temperature")) + "ºC\r\nHumidity: " + parseInt(result.get("humidity")) + "% \r\nLocation: " + result.get("location") + "\r\nLast update: " + result.updatedAt
+            title: "DeviceID: " + device + " (Last update: " + result.updatedAt + ")",
+            subtitle: "Temperature: " + parseInt(result.get("temperature")) + "ºC\r\nHumidity: " + parseInt(result.get("humidity")) + "%\r\nLocation: " + result.get("location").latitude +","+  result.get("location").longitude 
           })
         },
         error: (error) =>{
@@ -1006,8 +1006,8 @@ function getInfoSensor(ownerId) {
 // a valid certificate authority.
 app
   .listen(app.get('port'), function () {
-    Parse.initialize("sensio");
-    Parse.serverURL = 'http://sensioserver.herokuapp.com/parse';
+    Parse.initialize("kubus-realtime");
+    Parse.serverURL = 'http://kubus-realtime.herokuapp.com/parse';
     console.log('Node app is running on port', app.get('port'));
   });
 
